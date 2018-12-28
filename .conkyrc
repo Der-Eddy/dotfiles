@@ -1,0 +1,74 @@
+background yes
+font Noto:size=9
+#xftfont Noto:size=9
+use_xft yes
+xftalpha 0.8
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes 
+own_window_type normal
+own_window_argb_visual yes 
+own_window_class override
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 190 5
+maximum_width 190
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color green
+alignment top_right
+xinerama_head 2
+gap_x 20
+gap_y 170
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+uppercase yes
+
+TEXT
+${color white}SYSTEM ${hr 1}${color}
+
+Kernel $alignr${exec uname -r | cut -c1-12 }
+Uptime $alignr$uptime
+Updates $alignr${execpi 3600 checkupdates | wc -l}
+Temperature ${alignr}${exec sensors | grep -A 1 'Package id 0' | cut -c16-19 | sed '/^$/d'}C
+
+CPU Freq ${alignr}${freq} MHz
+Processes ${alignr}$processes ($running_processes running)
+
+CPU Usage ${alignr}${cpu}%
+${cpugraph 40}
+
+Ram ${alignr}$mem / $memmax ($memperc%)
+${memgraph 40}
+
+Top CPU usage $alignr CPU% RAM%
+${top name 1}$alignr${top cpu 1}    ${top mem 1}
+${top name 2}$alignr${top cpu 2}    ${top mem 2}
+${top name 3}$alignr${top cpu 3}    ${top mem 3}
+${top name 4}$alignr${top cpu 2}    ${top mem 4}
+${top name 5}$alignr${top cpu 3}    ${top mem 5}
+
+Top RAM usage $alignr CPU% RAM%
+${top_mem name 1}$alignr${top_mem cpu 1}    ${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2}    ${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}    ${top_mem mem 3}
+${top_mem name 4}$alignr${top_mem cpu 4}    ${top_mem mem 4}
+${top_mem name 5}$alignr${top_mem cpu 5}    ${top_mem mem 5}
+
+${color white}Net Down:$color ${alignr}${downspeed enp0s31f6}
+${color white}${downspeedgraph enp0s31f6 40} 
+${color white}Net Up:$color ${alignr}${upspeed enp0s31f6}
+${color white}${upspeedgraph enp0s31f6 40}
+
+${color white}SSD ${hr 1}${color}
+
+btrfs: ${alignr}${fs_free /} / ${fs_size /}
+${fs_bar 4 /}
+
