@@ -15,3 +15,7 @@ See `.conkyrc`
 ## Neofetch
 
 See `.config/neofetch/`
+
+## /etc
+
+While technically not dotfiles, I put some config files from /etc into the `etc` folder
