@@ -69,11 +69,18 @@ ${color white}${upspeedgraph enp0s31f6 40}
 
 ${color white}Disk Space ${hr 1}${color}
 
-btrfs: ${alignr}${fs_free /} / ${fs_size /}
+BTRFS SSD: ${alignr}${fs_free /} / ${fs_size /}
 ${fs_bar 4 /}
 ${diskiograph_read /dev/nvme0n1 20,93 -l} ${diskiograph_write /dev/nvme0n1 20,93 -l}
 ${color white}Read: ${diskio_read /dev/nvme0n1} ${alignr}${color white}Write: ${diskio_write /dev/nvme0n1}
+${if_mounted /mnt/HDD}
+BTRFS HDD: ${alignr}${fs_free /mnt/HDD} / ${fs_size /mnt/HDD}
+${fs_bar 4 /mnt/HDD}
+${diskiograph_read /dev/mapper/HDD 20,93 -l} ${diskiograph_write /dev/mapper/HDD 20,93 -l}
+${color white}Read: ${diskio_read /dev/mapper/HDD} ${alignr}${color white}Write: ${diskio_write /dev/mapper/HDD}
+${endif}
 ${if_mounted /run/media/eddy/4TB\040Seagate}
 4TB external: ${alignr}${fs_free /run/media/eddy/4TB Seagate/} / ${fs_size /run/media/eddy/4TB Seagate/}
 ${fs_bar 4 /run/media/eddy/4TB Seagate/}
 ${endif}
+
