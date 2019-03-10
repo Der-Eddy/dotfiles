@@ -12,6 +12,14 @@ See `.zshrc`
 
 See `.conkyrc`
 
+![](https://i.imgur.com/BCC5WC1.png)
+
+## htop
+
+See `.config/htop/`
+
+![](https://i.imgur.com/xW16OUG.png)
+
 ## Neofetch
 
 See `.config/neofetch/`
