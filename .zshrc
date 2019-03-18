@@ -12,9 +12,11 @@ autoload -Uz compinit
 compinit
 add-zsh-hook -d precmd prompt_grml_precmd
 if [[ "$USER" = 'root' ]]; then
-  PROMPT='%F{red}%n %F{magenta}%~ %F{white}> '
+  PROMPT='%F{9}%n %F{88}%~ %F{245}>%F{white} '
+elif [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
+  PROMPT='%F{226}%n@%m %F{228}%~ %F{245}>%F{white} '
 else
-  PROMPT='%F{blue}%n %F{cyan}%~ %F{white}> '
+  PROMPT='%F{214}%n %F{208}%~ %F{245}>%F{white} '
 fi
 
 # End of lines added by compinstall
