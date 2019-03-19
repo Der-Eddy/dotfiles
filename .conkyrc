@@ -24,7 +24,7 @@ default_outline_color green
 alignment top_right
 xinerama_head 2
 gap_x 20
-gap_y 170
+gap_y 200
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -36,11 +36,14 @@ ${color white}SYSTEM ${hr 1}${color}
 
 Kernel $alignr${exec uname -r}
 Uptime $alignr$uptime
-Updates $alignr${execpi 3600 checkupdates | wc -l}
-Temperature ${alignr}${exec sensors | grep -A 1 'Package id 0' | cut -c16-19 | sed '/^$/d'}C
+
+AMDGPU ${alignr}${exec sensors | grep 'hyst = -273.1' | cut -c16-17} C
+AMDFAN ${alignr}${exec sensors | grep 'fan1:' | cut -c15-18} RPM
+AMDPOW ${alignr}${exec sensors | grep 'power1' | cut -c14-19} W
 
 CPU Freq ${alignr}${freq} MHz
 Processes ${alignr}$processes ($running_processes running)
+Temperature ${alignr}${exec sensors | grep 'Package id 0' | cut -c17-18} C
 
 CPU Usage ${alignr}${cpu}%
 ${cpugraph 40}
@@ -79,8 +82,8 @@ ${fs_bar 4 /mnt/HDD}
 ${diskiograph_read /dev/mapper/HDD 20,93 -l} ${diskiograph_write /dev/mapper/HDD 20,93 -l}
 ${color white}Read: ${diskio_read /dev/mapper/HDD} ${alignr}${color white}Write: ${diskio_write /dev/mapper/HDD}
 ${endif}
-${if_mounted /run/media/eddy/4TB\040Seagate}
-4TB external: ${alignr}${fs_free /run/media/eddy/4TB Seagate/} / ${fs_size /run/media/eddy/4TB Seagate/}
-${fs_bar 4 /run/media/eddy/4TB Seagate/}
+${if_mounted /mnt/4TB}
+4TB external: ${alignr}${fs_free /mnt/4TB/} / ${fs_size /mnt/4TB/}
+${fs_bar 4 /mnt/4TB/}
 ${endif}
 
