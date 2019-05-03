@@ -12,7 +12,7 @@ See `.zshrc`
 
 See `.conkyrc`
 
-![](https://i.imgur.com/BCC5WC1.png)
+![](https://i.imgur.com/uo47FKN.png)
 
 ## htop
 

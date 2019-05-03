@@ -38,7 +38,7 @@ Kernel $alignr${exec uname -r}
 Uptime $alignr$uptime
 
 AMDGPU ${alignr}${exec sensors | grep 'hyst = -273.1' | cut -c16-17} C
-AMDFAN ${alignr}${exec sensors | grep 'fan1:' | cut -c15-18} RPM
+AMDFAN ${alignr}${exec sensors | grep 'fan1:' | cut -c14-18} RPM
 AMDPOW ${alignr}${exec sensors | grep 'power1' | cut -c14-19} W
 
 CPU Freq ${alignr}${freq} MHz
@@ -47,6 +47,10 @@ Temperature ${alignr}${exec sensors | grep 'Package id 0' | cut -c17-18} C
 
 CPU Usage ${alignr}${cpu}%
 ${cpugraph 40}
+${color white}Core 1: ${cpu cpu0}% ${alignr}${color white}Core 2: ${cpu cpu1}%
+${cpugraph cpu0 20,93} ${cpugraph cpu1 20,93}
+${color white}Core 3: ${cpu cpu2}% ${alignr}${color white}Core 4: ${cpu cpu3}%
+${cpugraph cpu2 20,93} ${cpugraph cpu3 20,93}
 
 Ram ${alignr}$mem / $memmax ($memperc%)
 ${memgraph 40}
@@ -56,19 +60,16 @@ ${font Noto Icons:size=8}${top name 1}$alignr${top cpu 1}    ${top mem 1}
 ${top name 2}$alignr${top cpu 2}    ${top mem 2}
 ${top name 3}$alignr${top cpu 3}    ${top mem 3}
 ${top name 4}$alignr${top cpu 2}    ${top mem 4}
-${top name 5}$alignr${top cpu 3}    ${top mem 5}
 
 ${font Noto Icons:size=9}Top RAM usage $alignr CPU% RAM%
 ${font Noto Icons:size=8}${top_mem name 1}$alignr${top_mem cpu 1}    ${top_mem mem 1}
 ${top_mem name 2}$alignr${top_mem cpu 2}    ${top_mem mem 2}
 ${top_mem name 3}$alignr${top_mem cpu 3}    ${top_mem mem 3}
 ${top_mem name 4}$alignr${top_mem cpu 4}    ${top_mem mem 4}
-${top_mem name 5}$alignr${top_mem cpu 5}    ${top_mem mem 5}
+
 ${font Noto Icons:size=9}
-${color white}Net Down:$color ${alignr}${downspeed enp0s31f6}
-${color white}${downspeedgraph enp0s31f6 40} 
-${color white}Net Up:$color ${alignr}${upspeed enp0s31f6}
-${color white}${upspeedgraph enp0s31f6 40}
+${color white}Down ${downspeed eth0} ${alignr}${color white}Up ${upspeed eth0}
+${color white}${downspeedgraph eth0 40,93} ${color white}${upspeedgraph eth0 40,93}
 
 ${color white}Disk Space ${hr 1}${color}
 
