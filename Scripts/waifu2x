@@ -1,0 +1,6 @@
+#!/bin/bash
+waifu2x-converter-cpp -i /home/eddy/rename -o /home/eddy/rename/2x
+rename '_[L1][x2.00]' '' /home/eddy/rename/2x/*.png
+rm /home/eddy/rename/*.jpg
+rm /home/eddy/rename/*.png
+notify-send "Done!" --icon=dialog-information

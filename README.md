@@ -28,6 +28,10 @@ See `.config/neofetch/`
 
 See `.nanorc`
 
+## /Scripts
+
+While technically not dotfiles, some small scripts can be found here
+
 ## /etc
 
 While technically not dotfiles, I put some config files from /etc into the `etc` folder
