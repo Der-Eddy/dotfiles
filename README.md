@@ -24,6 +24,10 @@ See `.config/htop/`
 
 See `.config/neofetch/`
 
+## Nano
+
+See `.nanorc`
+
 ## /etc
 
 While technically not dotfiles, I put some config files from /etc into the `etc` folder
