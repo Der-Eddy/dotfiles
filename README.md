@@ -21,6 +21,10 @@ See `.conkyrc`
 
 ![](https://i.imgur.com/R4wR65P.png)
 
+To enable blur on KDE Plasma, give the conky window blur settings:
+
+    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id `xdotool search --class conky`
+
 ## htop
 
 See `.config/htop/`
