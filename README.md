@@ -19,7 +19,7 @@ Additionally [zsh-autosuggestions](https://www.archlinux.org/packages/community/
 
 See `.conkyrc`
 
-![](https://i.imgur.com/uo47FKN.png)
+![](https://i.imgur.com/R4wR65P.png)
 
 ## htop
 

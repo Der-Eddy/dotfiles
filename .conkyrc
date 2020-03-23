@@ -1,26 +1,31 @@
 background yes
-font Noto:size=9
+font Ubuntu:size=9
 #xftfont Noto:size=9
 use_xft yes
 xftalpha 0.8
 update_interval 1.0
 total_run_times 0
+
 own_window yes
-own_window_transparent yes 
+own_window_transparent no
 own_window_type normal
 own_window_argb_visual yes 
-own_window_class override
+own_window_argb_value 75
+own_window_class conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
 double_buffer yes
-minimum_size 190 5
+minimum_size 190 1080
 maximum_width 190
-draw_shades yes
+draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders yes
 default_color white
 default_shade_color black
 default_outline_color green
+border_inner_margin 5
+
 alignment top_right
 xinerama_head 2
 gap_x 20
@@ -28,10 +33,12 @@ gap_y 200
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
+net_avg_samples 2
 override_utf8_locale no
 uppercase yes
 
 TEXT
+${voffset 20}
 ${color white}SYSTEM ${hr 1}${color}
 
 Kernel $alignr${exec uname -r}
@@ -40,6 +47,7 @@ Uptime $alignr$uptime
 AMDGPU ${alignr}${exec sensors | grep 'hyst = -273.1' | cut -c16-17} C
 AMDFAN ${alignr}${exec sensors | grep 'fan1:' | cut -c14-18} RPM
 AMDPOW ${alignr}${exec sensors | grep 'power1' | cut -c14-19} W
+#${execgraph radeontop -d -l1 | grep -o 'gpu [0-9]\{1,3\}' | cut -c 5-7}
 
 CPU Freq ${alignr}${freq} MHz
 Processes ${alignr}$processes ($running_processes running)
