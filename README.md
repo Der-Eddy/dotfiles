@@ -7,10 +7,13 @@ Currently available configs:
 ## Zsh
 
 See `.zshrc`
+
 Color of the prompt will change depending if you are using it locally, via SSH or as root:
 
 ![](https://i.imgur.com/Oaw7KBL.png)
+
 ![](https://i.imgur.com/7oVpFKJ.png)
+
 ![](https://i.imgur.com/Bscx0TJ.png)
 
 Additionally [zsh-autosuggestions](https://www.archlinux.org/packages/community/any/zsh-autosuggestions/) is used
