@@ -42,6 +42,14 @@ See `.config/neofetch/`
 
 See `.nanorc`
 
+## nvchecker
+
+See `.repo`
+
+Tracks linux package updates accross git repositories, package repositories and the AUR.
+
+![](https://i.imgur.com/NbVvLpJ.png)
+
 ## /Scripts
 
 While technically not dotfiles, some small scripts can be found here
