@@ -46,11 +46,13 @@ ${color white}SYSTEM ${hr 1}${color}
 Kernel $alignr${exec uname -r}
 Uptime $alignr$uptime
 
+${color white}GPU ${hr 1}${color}
 AMDGPU ${alignr}${exec sensors | grep 'hyst = -273.1' | cut -c16-17} C
 AMDFAN ${alignr}${exec sensors | grep 'fan1:' | cut -c14-18} RPM
 AMDPOW ${alignr}${exec sensors | grep 'power1' | cut -c14-19} W
 #${execgraph radeontop -d -l1 | grep -o 'gpu [0-9]\{1,3\}' | cut -c 5-7}
 
+${color white}CPU ${hr 1}${color}
 CPU Freq ${alignr}${freq} MHz
 Processes ${alignr}$processes ($running_processes running)
 Temperature ${alignr}${exec sensors | grep 'Package id 0' | cut -c17-18} C
@@ -63,25 +65,30 @@ ${color white}Core 3: ${cpu cpu2}% ${alignr}${color white}Core 4: ${cpu cpu3}%
 ${cpugraph cpu2 20,93} ${cpugraph cpu3 20,93}
 
 Ram ${alignr}$mem / $memmax ($memperc%)
-${memgraph 40}
+${memgraph 30}
 
 Top CPU usage $alignr CPU% RAM%
+${hr 1}
 ${font Noto Icons:size=8}${top name 1}$alignr${top cpu 1}    ${top mem 1}
 ${top name 2}$alignr${top cpu 2}    ${top mem 2}
 ${top name 3}$alignr${top cpu 3}    ${top mem 3}
-${top name 4}$alignr${top cpu 2}    ${top mem 4}
+${top name 4}$alignr${top cpu 4}    ${top mem 4}
+${top name 5}$alignr${top cpu 5}    ${top mem 5}
 
 ${font Noto Icons:size=9}Top RAM usage $alignr CPU% RAM%
+${hr 1}
 ${font Noto Icons:size=8}${top_mem name 1}$alignr${top_mem cpu 1}    ${top_mem mem 1}
 ${top_mem name 2}$alignr${top_mem cpu 2}    ${top_mem mem 2}
 ${top_mem name 3}$alignr${top_mem cpu 3}    ${top_mem mem 3}
 ${top_mem name 4}$alignr${top_mem cpu 4}    ${top_mem mem 4}
+${top_mem name 5}$alignr${top_mem cpu 5}    ${top_mem mem 5}
 
-${font Noto Icons:size=9}
+${color white}Network ${hr 1}${color}
+${font Noto Icons:size=8}
+${color white}${downspeedgraph eth0 20,93} ${color white}${upspeedgraph eth0 20,93}
 ${color white}Down ${downspeed eth0} ${alignr}${color white}Up ${upspeed eth0}
-${color white}${downspeedgraph eth0 40,93} ${color white}${upspeedgraph eth0 40,93}
 
-${color white}Disk Space ${hr 1}${color}
+${font Noto Icons:size=9}${color white}Disk Space ${hr 1}${color}
 
 BTRFS SSD: ${alignr}${fs_free /} / ${fs_size /}
 ${fs_bar 4 /}
