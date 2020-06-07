@@ -93,15 +93,15 @@ ${font Noto Icons:size=9}${color white}Disk Space ${hr 1}${color}
 BTRFS SSD: ${alignr}${fs_free /} / ${fs_size /}
 ${fs_bar 4 /}
 ${diskiograph_read /dev/nvme0n1 20,93 -l} ${diskiograph_write /dev/nvme0n1 20,93 -l}
-${color white}Read: ${diskio_read /dev/nvme0n1} ${alignr}${color white}Write: ${diskio_write /dev/nvme0n1}
+${font Noto Icons:size=8}${color white}Read: ${diskio_read /dev/nvme0n1} ${alignr}${color white}Write: ${diskio_write /dev/nvme0n1}
 ${if_mounted /mnt/HDD}
-BTRFS HDD: ${alignr}${fs_free /mnt/HDD} / ${fs_size /mnt/HDD}
+${font Noto Icons:size=9}BTRFS HDD: ${alignr}${fs_free /mnt/HDD} / ${fs_size /mnt/HDD}
 ${fs_bar 4 /mnt/HDD}
 ${diskiograph_read /dev/mapper/HDD 20,93 -l} ${diskiograph_write /dev/mapper/HDD 20,93 -l}
-${color white}Read: ${diskio_read /dev/mapper/HDD} ${alignr}${color white}Write: ${diskio_write /dev/mapper/HDD}
+${font Noto Icons:size=8}${color white}Read: ${diskio_read /dev/mapper/HDD} ${alignr}${color white}Write: ${diskio_write /dev/mapper/HDD}
 ${endif}
 ${if_mounted /mnt/4TB}
-4TB external: ${alignr}${fs_free /mnt/4TB/} / ${fs_size /mnt/4TB/}
+${font Noto Icons:size=9}4TB external: ${alignr}${fs_free /mnt/4TB/} / ${fs_size /mnt/4TB/}
 ${fs_bar 4 /mnt/4TB/}
 ${endif}
 
