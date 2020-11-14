@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+from pathlib import Path
+from PIL import Image
+
+folder = '/home/eddy/rename/'
+output = folder + '2x/'
+maxHeight = 1280
+
+for file in os.scandir(folder):
+    if file.path.endswith('.jpg') or file.path.endswith('.jpeg') or file.path.endswith('.png') and file.is_file():
+        #print(file.path)
+        im = Image.open(file.path)
+        _, h = im.size
+        outputFile = output + file.name
+        if h < maxHeight:
+            #print(outputFile)
+            subprocess.run(['waifu2x-converter-cpp', '-i', file.path, '-o', outputFile])
+            if os.path.exists(outputFile):
+                os.remove(file.path)
+            else:
+                raise Exception('waifu2x error')
+        else:
+            os.rename(file.path, outputFile)
+            Path(outputFile).touch()
