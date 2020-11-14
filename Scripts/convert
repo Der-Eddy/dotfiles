@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+from pathlib import Path
+from PIL import Image
+
+folder = '/home/eddy/rename/'
+output = folder + 'convert/'
+
+for file in os.scandir(folder):
+    if file.path.endswith('.webp') and file.is_file():
+        #print(file.path)
+        outputFile = output + file.name[:-5] + '.jpg'
+        subprocess.run(['convert', '-verbose', file.path, outputFile])
+        os.remove(file.path)
